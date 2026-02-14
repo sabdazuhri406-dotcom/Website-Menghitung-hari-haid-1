@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jadwal Haid</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <header class="container">
+      <h1>Jadwal Haid</h1>
+      <p class="muted">
+        Perkiraan jadwal haid berdasarkan input siklus. Hasil bisa berbeda
+        karena kondisi tubuh.
+      </p>
+    </header>
+
+    <main class="container grid">
+      <!-- FORM -->
+      <section class="card">
+        <h2>Input Data</h2>
+
+        <form id="periodForm" class="form" autocomplete="on">
+          <label for="lastPeriodDate">
+            Tanggal hari pertama haid terakhir
+          </label>
+          <input
+            type="date"
+            id="lastPeriodDate"
+            name="lastPeriodDate"
+            required
+          />
+
+          <label for="cycleLength"> Panjang siklus (hari) </label>
+          <input
+            type="number"
+            id="cycleLength"
+            name="cycleLength"
+            min="20"
+            max="45"
+            value="28"
+            required
+          />
+          <span class="hint">Umumnya 21–35 hari.</span>
+
+          <label for="periodLength"> Lama haid (hari) </label>
+          <input
+            type="number"
+            id="periodLength"
+            name="periodLength"
+            min="1"
+            max="10"
+            value="5"
+            required
+          />
+
+          <label for="predictCount">
+            Prediksi untuk berapa siklus ke depan?
+          </label>
+          <select id="predictCount" name="predictCount">
+            <option value="3">3 siklus</option>
+            <option value="6" selected>6 siklus</option>
+            <option value="12">12 siklus</option>
+          </select>
+
+          <div class="actions">
+            <button type="submit">Hitung</button>
+            <button type="reset" class="secondary">Reset</button>
+          </div>
+        </form>
+      </section>
+
+      <!-- HASIL -->
+      <section class="card">
+        <h2>Hasil Perkiraan</h2>
+
+        <div
+          id="resultSummary"
+          class="summary"
+          role="status"
+          aria-live="polite"
+        >
+          <p class="muted">Isi data lalu tekan <b>Hitung</b>.</p>
+        </div>
+
+        <div class="tableWrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Siklus ke-</th>
+                <th>Mulai haid</th>
+                <th>Selesai haid</th>
+                <th>Ovulasi</th>
+              </tr>
+            </thead>
+            <tbody id="resultTableBody"></tbody>
+          </table>
+        </div>
+
+        <p class="disclaimer">
+          * Ovulasi dihitung perkiraan: <b>mulai haid berikutnya - 14 hari</b>.
+          Kalo bener alhamdulilah, Kalo salah yaudah lah.
+        </p>
+      </section>
+
+      <!-- CATATAN -->
+      <section class="card full">
+        <h2>Catatan Penting !!!</h2>
+        <ul>
+          <li>Kalau lagi sensitif, jangan marah marah sendiri.</li>
+          <li>Minum air putih dulu sebelum ngomel.</li>
+          <li>Ingat: dunia nggak salah, cuma hormon yang lagi kerja keras</li>
+          <li>
+            Makan yang manis boleh, tapi jangan manisnya cuma ke orang lain.
+          </li>
+          <li>Kalau lagi bete… bilang aja, jangan bikin tebak-tebakan.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="container footer">
+      <small>Bismillah ga marah marah</small>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
